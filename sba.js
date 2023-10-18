@@ -38,7 +38,7 @@ const AssignmentGroup = {
             id: 1,
             name: "Declare a Variable",
             due_at: "2023-01-25",
-            points_possible: 900
+            points_possible: 50
         },
         {
             id: 2,
@@ -50,7 +50,7 @@ const AssignmentGroup = {
             id: 3,
             name: "Code the World",
             due_at: "3156-11-15",
-            points_possible: "hello"
+            points_possible: "150"
         }
     ]
 };
@@ -114,8 +114,25 @@ function matchAssigmentToCourse(groupId, courseId) {
        // console.log('Course and Assigment MATCH')
         return true
     }
-    else throw new Error("Course and Assigments do not match");
+    else throw new Error("Course and Assigment IDs do not match");
 }
+
+
+
+// function matchAssigmentToCourse(groupId, courseId) {
+//     if (groupId !== courseId) {
+//         throw new Error("Course and Assigment IDs do not match");
+//     }
+// }
+
+// try {
+//     matchAssigmentToCourse(AssignmentGroup.id, CourseInfo.id)
+
+// } catch(error) {
+// console.log(error)
+// }
+
+
 
 //matchAssigmentToCourse(AssignmentGroup.id, CourseInfo.id)
 
@@ -127,6 +144,8 @@ function matchAssigmentToCourse(groupId, courseId) {
 const checkForZeros = (assignmentGroup) => {
     return assignmentGroup.assignments.every(element => element.points_possible === 0)
 }
+
+
 
 //console.log(checkForZeros(AssignmentGroup))
 
@@ -183,7 +202,7 @@ const learnerVerifyInfo = (learnerInfo) => {
     })
 }
 
-console.log(learnerVerifyInfo(LearnerSubmissions))
+//console.log(learnerVerifyInfo(LearnerSubmissions))
 
 
 
@@ -202,13 +221,137 @@ const checkInputValues = (course, assigment, learner) => {
         return false
     }
 }
+checkInputValues(CourseInfo, AssignmentGroup, LearnerSubmissions)
 
-const result = checkInputValues(CourseInfo, AssignmentGroup, LearnerSubmissions)
-console.log(result)
 
 //     Use try/catch and other logic to handle these types of errors gracefully.
 // If an assignment is not yet due, don’t include it in the results or the average.
 
 
+
+
+function getLearnerData(course, ag, submissions) {
+    // here, we would process this data to achieve the desired result.
+    const result = [
+        {
+            id: 125,
+            avg: 0.985, // (47 + 150) / (50 + 150)
+            1: 0.94, // 47 / 50
+            2: 1.0 // 150 / 150
+        },
+        {
+            id: 132,
+            avg: 0.82, // (39 + 125) / (50 + 150)
+            1: 0.78, // 39 / 50
+            2: 0.833 // late: (140 - 15) / 150
+        }
+    ];
+
+    return result;
+}
+
+const result = getLearnerData(CourseInfo, AssignmentGroup, LearnerSubmissions);
+
+console.log(result);
+
 //Additionally, if the learner’s submission is late(submitted_at is past due_at), deduct 10 % of the total points possible from their score for that assignment.
 // Create a function named getLearnerData() that accepts these values as parameters, in the order listed: (CourseInfo, AssignmentGroup, [LearnerSubmission]), and returns the formatted result, which should be an array of objects as described above.
+
+
+//return learner id
+const getLearerId = (learner) => {
+    //console.log(learner[0].learner_id)
+    return learner[0].learner_id;
+}
+
+//get learner avg
+const getLearnAvg = (learner, assigmentGroup) => {
+    const scoresArr = learner.map(el=>el.submission.score);
+    //console.log(pointsArr)
+    const assignmentArr = assigmentGroup.assignments
+    const pointsArr = assignmentArr.map(el => el.points_possible)
+    console.log(scoresArr)
+    console.log(pointsArr)
+    //console.log(scoresArr)
+    //const scoreSum = scoresArr.reduce((a,b)=>a+b);
+
+   // const pointsSum = pointsArr.reduce((a, b) => a + b);
+
+    //const scoreAvg = (scoreSum / pointsSum );
+    //console.log(scoreAvg)
+}
+
+
+// const getPoints = (assigmentGroup) => {
+
+//     const assignmentArr = assigmentGroup.assignments
+//     assignmentArr.forEach(el=>console.log(el.points_possible))
+//    console.log(assignmentArr)
+// }
+
+
+getLearnAvg(LearnerSubmissions, AssignmentGroup)
+
+
+
+function getLearnerData(course, ag, learner){
+const learnerId = learner.id;
+
+}
+
+function getLearnerScores(learners, ag){
+
+const learnersArr = []
+learners.forEach( el=>{
+    if(!learnersArr.includes(el.learner_id))
+    learnersArr.push(el.learner_id)
+})
+
+console.log(learnersArr.length)
+
+
+learnersArr.forEach( (el,i) => {
+console.log(el, i)
+})
+
+const learner1 = learners.filter(el=>el.learner_id === learnersArr[0])
+const learner1Score = learner1.map(el=>el.submission.score)
+
+console.log(learner1Score)
+//const avgScore = learner1Score.reduce((a,b)=>a+b) / learner1Score.length
+//console.log(avgScore)
+const learner2 = learners.filter(el=>el.learner_id === learnersArr[1])
+const learner3 = learners.filter(el=>el.learner_id === learnersArr[2])
+
+    const assignmentArr = ag.assignments
+    const pointsArr = assignmentArr.map(el => el.points_possible)
+
+
+console.log(learner1Score)
+console.log(pointsArr)
+
+
+const result = [];
+
+for (let i = 0; i<learner1Score.length; i++){
+    const scoreObj = {}
+    scoreObj.id = i+1 ;
+    //scoreObj.score = learner1Score[i];
+
+   // scoreObj.points_possible = pointsArr[i];
+    const avgScore = learner1Score.reduce((a, b) => a + b) / pointsArr.reduce((a, b) => a + b)
+    scoreObj[i] = avgScore
+
+    scoreObj.avg = avgScore;
+    result.push(scoreObj)
+}
+
+
+    //console.log(avgScore)
+
+// console.log(learner2)
+// console.log(learner3)
+return result
+}
+
+console.log(getLearnerScores(LearnerSubmissions, AssignmentGroup))

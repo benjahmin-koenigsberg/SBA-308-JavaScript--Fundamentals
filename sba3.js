@@ -1,0 +1,5 @@
+function getStudentScores(lg) {
+
+
+
+}
