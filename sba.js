@@ -50,7 +50,7 @@ const AssignmentGroup = {
             id: 3,
             name: "Code the World",
             due_at: "3156-11-15",
-            points_possible: 500
+            points_possible: "hello"
         }
     ]
 };
@@ -99,6 +99,8 @@ const LearnerSubmissions = [
     }
 ];
 
+
+
 // If an AssignmentGroup does not belong to its course(mismatching course_id),
 //your program should throw an error letting the user know that the input was invalid
 
@@ -109,7 +111,7 @@ const LearnerSubmissions = [
 
 function matchAssigmentToCourse(groupId, courseId) {
     if (groupId === courseId) {
-        console.log('Course and Assigment MATCH')
+       // console.log('Course and Assigment MATCH')
         return true
     }
     else throw new Error("Course and Assigments do not match");
@@ -132,7 +134,7 @@ const checkForZeros = (assignmentGroup) => {
 //What if a value that you are expecting to be a number is instead a string ?
 
 const courseInfoVerify = (course) => {
-    console.log(course.id)
+   // console.log(course.id)
     if (typeof course.id === 'number') {
         return true;
 
@@ -149,24 +151,39 @@ const courseInfoVerify = (course) => {
 
 
 const assignmentInfoVerify = (group) => {
-    // console.log(group.id)
-
     const groupNums = [group.id, group.course_id, group.group_weight]
 
     group.assignments.forEach(el => groupNums.push(el.id, el.points_possible))
-    console.log(groupNums)
+   // console.log(groupNums)
 
     groupNums.forEach(num => {
         if (typeof num === 'number') {
             return true
         }
         else {
-            throw new Error("Pleas make sure all numerical inputs are valid");
+            console.log("Pleas make sure all numerical inputs are valid");
             return false
         }
     })
 }
 
+const learnerVerifyInfo = (learnerInfo) => {
+
+    const learnerNums = [];
+    learnerInfo.forEach((el) => { learnerNums.push(el.learner_id, el.assignment_id, el.submission.score) })
+    //console.log(learnerNums)
+    learnerNums.forEach(num => {
+        if (typeof num === 'number') {
+            return true
+        }
+        else {
+            console.log("Pleas make sure all numerical inputs are valid");
+            return false
+        }
+    })
+}
+
+console.log(learnerVerifyInfo(LearnerSubmissions))
 
 
 
@@ -175,12 +192,23 @@ console.log(assignmentInfoVerify(AssignmentGroup))
 
 // console.log(courseInfoVerify(CourseInfo))
 
-const checkInputValues = () => {
+const checkInputValues = (course, assigment, learner) => {
 
+    if ( courseInfoVerify(course) && assignmentInfoVerify(assigment) && learnerVerifyInfo(learner) ) {
+    return true
+    }
+    else {
+        console.log("Pleas make sure all numerical inputs are valid");
+        return false
+    }
 }
 
-
+const result = checkInputValues(CourseInfo, AssignmentGroup, LearnerSubmissions)
+console.log(result)
 
 //     Use try/catch and other logic to handle these types of errors gracefully.
-// If an assignment is not yet due, don’t include it in the results or the average.Additionally, if the learner’s submission is late(submitted_at is past due_at), deduct 10 % of the total points possible from their score for that assignment.
+// If an assignment is not yet due, don’t include it in the results or the average.
+
+
+//Additionally, if the learner’s submission is late(submitted_at is past due_at), deduct 10 % of the total points possible from their score for that assignment.
 // Create a function named getLearnerData() that accepts these values as parameters, in the order listed: (CourseInfo, AssignmentGroup, [LearnerSubmission]), and returns the formatted result, which should be an array of objects as described above.
