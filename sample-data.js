@@ -1,5 +1,5 @@
 // The provided learner submission data.
-exports.LearnerSubmissions = [
+const LearnerSubmissions = [
     {
         learner_id: 125,
         assignment_id: 1,
@@ -76,4 +76,5 @@ const AssignmentGroup = {
     ]
 };
 
-// export default {LearnerSubmissions, CourseInfo, AssignmentGroup}
+export { LearnerSubmissions, CourseInfo, AssignmentGroup }
+//exports.arrays = [LearnerSubmissions, CourseInfo, AssignmentGroup]
