@@ -18,18 +18,15 @@ function seperateLearnersFromGroup(learnersGroup) {
     //learner 2
     const learner2 = learnersGroup.filter(el => el.learner_id === learnersArr[1])
 
-
-    //learner1.forEach(el=>console.log(el.submission))
     //console.log(learner1)
     learner1array = learner1
     learner2array = learner2
-    // learnersArr[0] = learner1;
-    // learnersArr[1] = learner2;
-
     return ;
-
 }
 
+
+//envoking function to parse learners
 seperateLearnersFromGroup(LearnerSubmissions)
-console.log(learner1array)
-console.log(learner2array)
+
+
+export {learner1array, learner2array}

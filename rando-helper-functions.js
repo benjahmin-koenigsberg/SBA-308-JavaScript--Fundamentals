@@ -1,4 +1,30 @@
 
+//helper function to see if assigment and course IDs are matching
+
+function matchAssigmentToCourse(groupId, courseId) {
+    if (groupId === courseId) {
+        // console.log('Course and Assigment MATCH')
+        return true
+    }
+    else throw new Error("Course and Assigment IDs do not match");
+}
+
+
+// function matchAssigmentToCourse(groupId, courseId) {
+//     if (groupId !== courseId) {
+//         throw new Error("Course and Assigment IDs do not match");
+//     }
+// }
+
+// try {
+//     matchAssigmentToCourse(AssignmentGroup.id, CourseInfo.id)
+
+// } catch(error) {
+// console.log(error)
+// }
+
+
+
 
 function getAssigmentInfo(ag) {
     const assignments = ag.assignments
