@@ -14,8 +14,11 @@ const assignmentObj = {
     points_possible: undefined,
     learner1score: undefined,
     learner1submitted: undefined,
+    learner1avg: undefined,
     learner2score: undefined,
     learner2submitted: undefined,
+    learner2avg: undefined,
+
 }
 
 for (let i = 0; i<assigmentsArray.length; i++){
@@ -29,6 +32,8 @@ assignmentObj.learner1submitted = learner1array[i].submission.submitted_at;
 assignmentObj.learner2score = learner2array[i]?.submission.score;
 assignmentObj.learner2submitted = learner2array[i]?.submission.submitted_at;
 
+assignmentObj.learner1avg = (learner1array[i].submission.score / assigmentsArray[i].points_possible) * 100;
+assignmentObj.learner2avg = (learner2array[i]?.submission.score / assigmentsArray[i].points_possible) * 100;
 
 objArr.push(assignmentObj)
 console.log(assignmentObj)
