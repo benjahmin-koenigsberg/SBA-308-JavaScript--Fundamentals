@@ -16,10 +16,13 @@ function buildAssigmentObjects(learnerArray, agArray){
         assignmentObj1.points_possible = agArray[i].points_possible
         assignmentObj1.due_at = agArray[i].due_at.split('-').join('');
         assignmentObj1.learner1Id = learnerArray[0].learner_id;
-        assignmentObj1.learner1score = learnerArray[i].submission.score;
-        assignmentObj1.learner1avg = (learnerArray[i].submission.score / points_possible) * 100;
+        // assignmentObj1.learner1score = learnerArray[i].submission.score;
+        assignmentObj1.score = learnerArray[i].submission.score;
+        // assignmentObj1.learner1avg = (learnerArray[i].submission.score / points_possible) * 100;
+        assignmentObj1.avg = (learnerArray[i].submission.score / points_possible) * 100;
         assignmentObj1.learner1submitted = learnerArray[i].submission.submitted_at.split('-').join('');
         objArr.push(assignmentObj1)
+
 }
 return objArr;
 }

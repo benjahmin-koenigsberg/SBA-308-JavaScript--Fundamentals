@@ -1,4 +1,3 @@
-
 /*
 
 {
@@ -19,8 +18,6 @@
 }
 
 */
-
-
 // If an AssignmentGroup does not belong to its course(mismatching course_id),
 //your program should throw an error letting the user know that the input was invalid
 //Similar data validation should occur elsewhere within the program.
@@ -54,14 +51,3 @@ function getLearnerData(course, ag, submissions) {
 }
 
 //const result = getLearnerData(CourseInfo, AssignmentGroup, LearnerSubmissions);
-
-
-//variables
-
-// sudent id of ech learner from learner group
-// the id of each assigment taken by student
-// the due date of each assigment
-// each students' assigment scores
-// each assigments possible score
-// the overall avaerage of each score / possible score
-// the average for each assigment score / assigment possible score

@@ -1,8 +1,8 @@
 import { LearnerSubmissions } from "./sample-data.js";
 
+//initialize empty array;
 let learner1array;
 let learner2array;
-
 
 //seperate learers from learner group function
 function seperateLearnersFromGroup(learnersGroup) {
@@ -24,9 +24,7 @@ function seperateLearnersFromGroup(learnersGroup) {
     return ;
 }
 
-
 //envoking function to parse learners
 seperateLearnersFromGroup(LearnerSubmissions)
-//console.log(learner1array)
 
 export {learner1array, learner2array}
