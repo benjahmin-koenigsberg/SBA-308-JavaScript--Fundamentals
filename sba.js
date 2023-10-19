@@ -50,7 +50,7 @@ const AssignmentGroup = {
             id: 3,
             name: "Code the World",
             due_at: "3156-11-15",
-            points_possible: "150"
+            points_possible: "500"
         }
     ]
 };
@@ -312,12 +312,19 @@ console.log(learnersArr.length)
 
 learnersArr.forEach( (el,i) => {
 console.log(el, i)
+
 })
 
-const learner1 = learners.filter(el=>el.learner_id === learnersArr[0])
-const learner1Score = learner1.map(el=>el.submission.score)
 
-console.log(learner1Score)
+    const learner1 = learners.filter(el => el.learner_id === learnersArr[0])
+    const learner1Score = learner1.map(el => el.submission.score)
+    console.log(learner1Score)
+
+
+// const learner1 = learners.filter(el=>el.learner_id === learnersArr[0])
+// const learner1Score = learner1.map(el=>el.submission.score)
+
+//console.log(learner1Score)
 //const avgScore = learner1Score.reduce((a,b)=>a+b) / learner1Score.length
 //console.log(avgScore)
 const learner2 = learners.filter(el=>el.learner_id === learnersArr[1])
@@ -330,11 +337,21 @@ const learner3 = learners.filter(el=>el.learner_id === learnersArr[2])
 console.log(learner1Score)
 console.log(pointsArr)
 
+const testArr = [];
+
+    for (let i = 0; i < learner1Score.length; i++) {
+        const obj = {}
+        obj[i + 1] = learner1Score[i] / pointsArr[i];
+        testArr.push(obj)
+    //console.log( (learner1Score[i] / pointsArr[i]) )
+    }
+console.log(testArr)
 
 const result = [];
 
 for (let i = 0; i<learner1Score.length; i++){
     const scoreObj = {}
+    obj.avg = learner1Score.reduce((a, b) => a + b) / pointsArr.reduce((a, b) => a + b)
     scoreObj.id = i+1 ;
     //scoreObj.score = learner1Score[i];
 

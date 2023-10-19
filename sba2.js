@@ -26,6 +26,10 @@ const AssignmentGroup = {
 };
 
 
+
+
+
+
 function getAssigmentInfo(ag){
     const assignments = ag.assignments
     console.log(assignments)
@@ -34,13 +38,11 @@ function getAssigmentInfo(ag){
         const obj = {};
         obj.id = element.id
         obj.points_possible = element.points_possible;
+
         assignmentsArray.push(obj)
     });
     console.log(assignmentsArray)
-   // return results
+   return assignmentsArray
 }
 
 getAssigmentInfo(AssignmentGroup)
-
-
-
