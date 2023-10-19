@@ -1,44 +1,48 @@
-import { objArr } from "./build-assigment-objs-function.js";
-import { learner1array, learner2array } from "./parse-learners-function.js";
-
-//get possible points
-const possiblePointsSum = objArr.map((el)=>el.points_possible).reduce((a,b)=>a+b)
-
-//get learner 1 total score
-// const learner1ScoreSum = objArr.map((el) => el.learner1score).reduce((a, b) => a + b)
-const learner1ScoreSum = objArr.filter(el => el.learner1Id === 125).map(el => el.learner1score).reduce((a, b) => a + b)
-
-
-//get learner 1 avg score
-const learner1avg = (learner1ScoreSum / possiblePointsSum) * 100;
-
-
-//get learner 2 total score
-const learner2ScoreSum = objArr.filter(el => el.learner2Id === 132).map((el) => el.learner2score).reduce((a, b) => a + b);
-//get learner 2 avg score
-const learner2avg = (learner2ScoreSum / possiblePointsSum) * 100;
-
-//console.log(objArr)
-console.log(learner1ScoreSum)
-
-const learner1resultsObj = {
-    id: learner1array[0].learner_id,
-    avg: learner1avg,
-     1: objArr[0].learner1avg,
-     2: objArr[1].learner1avg,
-     3: objArr[2].learner1avg,
-}
-
-const learner2resultsObj = {
-    id: learner2array[0].learner_id,
-    avg: learner2avg,
-    1: objArr[3].learner2avg,
-    2: objArr[4].learner2avg,
-    3: objArr[5]?.learner2avg,
-}
-
+import {  learner1Obj, learner2Obj } from "./build-assigment-objs-function.js";
 const results = []
-results.push(learner1resultsObj, learner2resultsObj)
+
+
+function assempleResultsArray(learnerObject1, learnerObject2){
+
+    //learner 1 get possible points
+    const l1_possiblePointsSum = learnerObject1.map((el) => el.points_possible).reduce((a, b) => a + b)
+    //get learner 1 total score
+    const l1_ScoreSum = learnerObject1.map((el) => el.learner1score).reduce((a, b) => a + b)
+    //get learner 1 avg score
+    const learner1avg = (l1_ScoreSum / l1_possiblePointsSum) * 100;
+
+    const l1_resultsObj = {
+        id: learnerObject1[0].learner1Id,
+        avg: learner1avg,
+        1: learnerObject1[0].learner1avg,
+        2: learnerObject1[1].learner1avg,
+        3: learnerObject1[2].learner1avg,
+    }
+
+    //learner 2 get possible points
+    const l2_possiblePointsSum = learnerObject2.map((el) => el.points_possible).reduce((a, b) => a + b)
+    //get learner 2 total score
+    const l2_ScoreSum = learnerObject2.map((el) => el.learner1score).reduce((a, b) => a + b)
+    //get learner 2 avg score
+    const learner2avg = (l2_ScoreSum / l2_possiblePointsSum) * 100;
+
+    const l2_resultsObj = {
+        id: learnerObject2[0].learner1Id,
+        avg: learner2avg,
+        1: learnerObject2[0].learner1avg,
+        2: learnerObject2[1].learner1avg,
+        3: learnerObject2[2]?.learner1avg,
+    }
+
+    results.push(l1_resultsObj, l2_resultsObj)
+    return results
+}
+
+
+//envoke function with learner objects
+assempleResultsArray(learner1Obj, learner2Obj)
+
 
 
 console.log(results)
+//console.log(results)
