@@ -1,5 +1,4 @@
-import { objArr } from "./build-assigment-objs-function.js";
-console.log(objArr)
+
 /*
 
 {

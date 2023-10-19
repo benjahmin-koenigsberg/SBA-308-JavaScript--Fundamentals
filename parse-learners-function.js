@@ -27,6 +27,6 @@ function seperateLearnersFromGroup(learnersGroup) {
 
 //envoking function to parse learners
 seperateLearnersFromGroup(LearnerSubmissions)
-
+//console.log(learner1array)
 
 export {learner1array, learner2array}
