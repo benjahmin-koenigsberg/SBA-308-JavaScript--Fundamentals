@@ -8,7 +8,7 @@ let year = date.getFullYear();
 let currentDate = `${day}-${month}-${year}`.split('-').reverse().join('');
 //console.log(currentDate);
 
-function buildAssigmentObjects(learnerArray, agArray){
+function buildAssigmentObjects(learnerArray, agArray) {
 
     const objArr = []
 
@@ -27,21 +27,22 @@ function buildAssigmentObjects(learnerArray, agArray){
 
 
         //check if assignment is late
-        if ( assignmentObj1.submitted_at > assignmentObj1.due_at ){
-        //if yes reduce avg score by 10%
-        assignmentObj1.avg = assignmentObj1.avg *.9;
+        if (assignmentObj1.submitted_at > assignmentObj1.due_at) {
+            //if yes reduce avg score by 10%
+            assignmentObj1.avg = assignmentObj1.avg * .9;
         }
 
         //check if assigment date is after todays date
-        if ( assignmentObj1.due_at > currentDate ){
-        //if so don't add it to the output array
+        if (assignmentObj1.due_at > currentDate) {
+            //if so don't add it to the output array
+            continue;
         } else {
             objArr.push(assignmentObj1)
         }
 
-}
-return objArr;
+    }
+    return objArr;
 }
 
 
-export {  buildAssigmentObjects }
+export { buildAssigmentObjects }

@@ -1,4 +1,4 @@
-import { LearnerSubmissions } from "./sample-data.js";
+import { LearnerSubmissions } from "../sample-data.js";
 
 //initialize empty array;
 let learner1array;

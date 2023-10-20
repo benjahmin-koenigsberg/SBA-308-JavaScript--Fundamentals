@@ -1,4 +1,4 @@
-import { LearnerSubmissions, AssignmentGroup, CourseInfo } from "./sample-data.js";
+import { LearnerSubmissions, AssignmentGroup, CourseInfo } from "../sample-data.js";
 
 //helper function to check if points_possible is 0
 const checkForZeros = (assignmentGroup) => {
@@ -23,7 +23,7 @@ const courseInfoVerify = (course) => {
 const assignmentInfoVerify = (group) => {
     const groupNums = [group.id, group.course_id, group.group_weight]
     group.assignments.forEach(el => groupNums.push(el.id, el.points_possible))
-    if ( groupNums.every(num => typeof num === 'number') ){
+    if (groupNums.every(num => typeof num === 'number')) {
         return true
     } else {
         throw new Error("Pleas make sure all numerical inputs are valid numbers")
@@ -44,11 +44,11 @@ const learnerVerifyInfo = (learnerInfo) => {
 }
 
 const checkInputValues = (course, assigment, learner) => {
-    if ( courseInfoVerify(course) && assignmentInfoVerify(assigment) && learnerVerifyInfo(learner) ) {
+    if (courseInfoVerify(course) && assignmentInfoVerify(assigment) && learnerVerifyInfo(learner)) {
         return true
     }
     else {
-      throw new Error("Pleas make sure all numerical inputs are valid numbers")
+        throw new Error("Pleas make sure all numerical inputs are valid numbers")
     }
 }
 
