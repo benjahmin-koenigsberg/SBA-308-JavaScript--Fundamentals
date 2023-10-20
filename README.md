@@ -17,46 +17,117 @@ This assessment from [Per Scholas](https://perscholas.org) gauges my understandi
 
 ### Objectives
 
-Employ basic JavaScript syntax accurately.
-Implement control flow structures such as conditionals and loops effectively.
-Use arrays and objects to organize and manage data.
+- Employ basic JavaScript syntax accurately.
+
+- Implement control flow structures such as conditionals and loops effectively.
+
+- Use arrays and objects to organize and manage data.
 Develop functions to create reusable code.
-Utilize loops and iteration to navigate through data collections.
-Implement error handling to manage potential code failures gracefully.
+
+- Utilize loops and iteration to navigate through data collections.
+
+- Implement error handling to manage potential code failures gracefully.
 
 ### Instructions
 
-You will create a script that gathers data, processes it, and then outputs a consistent result as described by a specification. This is a very typical situation in industry, and this particular scenario has been modified from a real application. The data you will use will be provided to you.
+Create a function named getLearnerData() that accepts these values as parameters, in the order listed: (CourseInfo, AssignmentGroup, [LearnerSubmission]), and returns the formatted result, which should be an array of objects as described above.
+
+### Sample input
+
+A CourseInfo object, which looks like this:
+```
+
+{
+  "id": number,
+  "name": string,
+}
+```
+An AssignmentGroup object, which looks like this:
+```
+{
+  "id": number,
+  "name": string,
+  // the ID of the course the assignment group belongs to
+  "course_id": number,
+  // the percentage weight of the entire assignment group
+  "group_weight": number,
+  "assignments": {
+  "id": number,
+  "name": string,
+  // the due date for the assignment
+  "due_at": Date string,
+  // the maximum points possible for the assignment
+  "points_possible": number,
+},
+}
+```
+An array of LearnerSubmission objects, which each look like this:
+```
+{
+    "learner_id": number,
+    "assignment_id": number,
+    "submission": {
+      "submitted_at": Date string,
+      "score": number
+    }
+}
+```
+
 
 ### Sample output
 
 ```
-
-{
-    // the ID of the learner for which this data has been collected
-    "id": number,
-    // the learner’s total, weighted average, in which assignments
-    // with more points_possible should be counted for more
-    // e.g. a learner with 50/100 on one assignment and 190/200 on another
-    // would have a weighted average score of 240/300 = 80%.
-    "avg": number,
-    // each assignment should have a key with its ID,
-    // and the value associated with it should be the percentage that
-    // the learner scored on the assignment (submission.score / points_possible)
-    <assignment_id>: number,
-    // if an assignment is not yet due, it should not be included in either
-    // the average or the keyed dictionary of scores
-}
+const result = [
+    {
+      id: 125,
+      avg: 0.985, // (47 + 150) / (50 + 150)
+      1: 0.94, // 47 / 50
+      2: 1.0 // 150 / 150
+    },
+    {
+      id: 132,
+      avg: 0.82, // (39 + 125) / (50 + 150)
+      1: 0.78, // 39 / 50
+      2: 0.833 // late: (140 - 15) / 150
+    }
+  ];
 
 ```
 
 ### A few grading requirements
 
 - Use at least two if/else statements to control program flow. Optionally, use at least one switch statement.
+
+example
+```
+        if (assignmentObj1.due_at > currentDate) {
+            //if so don't add it to the output array
+            continue;
+        } else {
+            objArr.push(assignmentObj1)
+        }
+```
+
 - Create and/or manipulate arrays and objects.
+example
+```
+    const learner1 = learnersGroup.filter(el => el.learner_id === learnersArr[0])
+```
+
 - Use functions to handle repeated tasks.
-- Program outputs processed data as described above. Partial credit will be earned depending on the level of adherence to the described behavior.
-- Ensure that the program runs without errors (comment out things that do not work, and explain your blockers - you can still receive partial credit).
+example
+```
+function matchAssigmentToCourse(groupId, courseId) {
+    if (groupId === courseId) {
+        // console.log('Course and Assigment MATCH')
+        return true
+    }
+    else {
+        throw new Error("Course and Assigment IDs do not match");
+    }
+}
+```
+
 
 ### Reflections
 
