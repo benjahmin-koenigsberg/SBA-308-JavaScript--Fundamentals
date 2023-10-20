@@ -1,3 +1,7 @@
+import { learner1array, learner2array, seperateLearnersFromGroup } from "./parse-learners-function.js";
+import { AssignmentGroup, LearnerSubmissions, CourseInfo } from "./sample-data.js";
+import { buildAssigmentObjects } from "./build-assigment-objs-function.js";
+import { assigmentsArray  } from "./parse-assigments-function.js";
 /*
 
 {
@@ -31,23 +35,21 @@
 // Create a function named getLearnerData() that accepts these values as parameters, in the order listed: (CourseInfo, AssignmentGroup, [LearnerSubmission]), and returns the formatted result, which should be an array of objects as described above.
 
 function getLearnerData(course, ag, submissions) {
-    // here, we would process this data to achieve the desired result.
-    const result = [
-        {
-            id: 125,
-            avg: 0.985, // (47 + 150) / (50 + 150)
-            1: 0.94, // 47 / 50
-            2: 1.0 // 150 / 150
-        },
-        {
-            id: 132,
-            avg: 0.82, // (39 + 125) / (50 + 150)
-            1: 0.78, // 39 / 50
-            2: 0.833 // late: (140 - 15) / 150
-        }
-    ];
 
-    return result;
+    seperateLearnersFromGroup(LearnerSubmissions);
+    //learner1array = learner1array;
+    // learner2array = learner2array;
+    const l1 = buildAssigmentObjects(learner1array, assigmentsArray)
+    const l2 = buildAssigmentObjects(learner2array, assigmentsArray)
+
+    return [l1, l2]
+
+
+
+
 }
 
-//const result = getLearnerData(CourseInfo, AssignmentGroup, LearnerSubmissions);
+
+const result = getLearnerData(CourseInfo, AssignmentGroup, LearnerSubmissions);
+
+console.log(result)

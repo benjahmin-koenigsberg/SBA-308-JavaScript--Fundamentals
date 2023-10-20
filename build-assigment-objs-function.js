@@ -1,7 +1,7 @@
-import { learner1array, learner2array } from "./parse-learners-function.js";
+//import { learner1array, learner2array } from "./parse-learners-function.js";
 import { assigmentsArray } from "./parse-assigments-function.js"
 
-//console.log(learner1array)
+
 
 function buildAssigmentObjects(learnerArray, agArray){
 
@@ -26,9 +26,9 @@ function buildAssigmentObjects(learnerArray, agArray){
 }
 return objArr;
 }
-//console.log(objArr)
-const learner1Obj = buildAssigmentObjects(learner1array, assigmentsArray);
-const learner2Obj = buildAssigmentObjects(learner2array, assigmentsArray);
 
+//const learner1Obj = buildAssigmentObjects(learner1array, assigmentsArray );
+// const learner2Obj = buildAssigmentObjects(learner2array, assigmentsArray);
+//console.log(learner1Obj)
 
-export { learner1Obj, learner2Obj }
+export {  buildAssigmentObjects }
