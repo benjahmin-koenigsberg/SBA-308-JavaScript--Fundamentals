@@ -1,6 +1,6 @@
 
 ### Run
-Clone, fork or download this repo and open
+Clone, fork or download this repo, open and run code.
 ```
 index.js
 ```
@@ -98,7 +98,10 @@ const result = [
 
 - Use at least two if/else statements to control program flow. Optionally, use at least one switch statement.
 
-example
+example :
+
+###### If an assignment is not yet due, don’t include it in the results or the average.
+
 ```
         if (assignmentObj1.due_at > currentDate) {
             //if so don't add it to the output array
@@ -109,13 +112,18 @@ example
 ```
 
 - Create and/or manipulate arrays and objects.
+
 example
 ```
     const learner1 = learnersGroup.filter(el => el.learner_id === learnersArr[0])
 ```
 
 - Use functions to handle repeated tasks.
+
 example
+
+###### If an AssignmentGroup does not belong to its course (mismatching course_id), your program should throw an error letting the user know that the input was invalid.
+
 ```
 function matchAssigmentToCourse(groupId, courseId) {
     if (groupId === courseId) {
