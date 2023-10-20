@@ -2,7 +2,7 @@
 ### Run
 Clone, fork or download this repo, open and run code.
 ```
-index.js
+main.js
 ```
 Function runs with data from
 ```
@@ -142,6 +142,8 @@ function matchAssigmentToCourse(groupId, courseId) {
  **What could you have done differently during the planning stages of your project to make the execution easier?**
 
 > I could have spent more time planning before coding. I also should have read through the grading rubrics first to see the best MVP would have been
+
+> I also would like to get into the habit of creating seperate branches for working on different features or stages
 
 **Were there any requirements that were difficult to implement? What do you think would make them easier to implement in future projects?**
 
