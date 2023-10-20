@@ -13,12 +13,12 @@ const results = []
 
     const resultsObj = {
         id: learnerObject[0].learner1Id,
-        avg: avg,
+        avg: avg.toFixed(2),
         1: learnerObject[0].avg,
         2: learnerObject[1].avg,
         3: learnerObject[2]?.avg,
     }
-
+if(resultsObj['3']===undefined) delete resultsObj['3'];
 
     return resultsObj;
 }

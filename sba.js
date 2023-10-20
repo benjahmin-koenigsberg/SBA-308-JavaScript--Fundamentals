@@ -1,5 +1,7 @@
-import { learner1array, learner2array, seperateLearnersFromGroup } from "./parse-learners-function.js";
+//sample input data
 import { AssignmentGroup, LearnerSubmissions, CourseInfo } from "./sample-data.js";
+
+import { learner1array, learner2array, seperateLearnersFromGroup } from "./parse-learners-function.js";
 import { buildAssigmentObjects } from "./build-assigment-objs-function.js";
 import { assigmentsArray } from "./parse-assigments-function.js";
 import { assembleResultsArray } from "./build-result-array.js";
