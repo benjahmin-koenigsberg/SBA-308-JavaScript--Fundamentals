@@ -1,4 +1,17 @@
-## About this app
+
+### Run
+Clone, fork or download this repo and open
+```
+index.js
+```
+Function runs with data from
+```
+sample-data.js
+```
+Change values of input arrays for different results
+
+
+### About this app
 
 This assessment from [Per Scholas](https://perscholas.org) gauges my understanding of fundamental JavaScript concepts and your ability to apply these concepts in a practical manner.
 
