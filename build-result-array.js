@@ -1,4 +1,4 @@
-import {  learner1Obj, learner2Obj } from "./build-assigment-objs-function.js";
+//import {  learner1Obj, learner2Obj } from "./build-assigment-objs-function.js";
 const results = []
 
 
@@ -23,12 +23,11 @@ const results = []
     return resultsObj;
 }
 
+export {assembleResultsArray}
 
-const learnerOne = assembleResultsArray(learner1Obj)
-const learnerTwo = assembleResultsArray(learner2Obj)
-
-
-results.push(learnerOne, learnerTwo)
+// const learnerOne = assembleResultsArray(learner1Obj)
+// const learnerTwo = assembleResultsArray(learner2Obj)
+//results.push(learnerOne, learnerTwo)
 
 
 
