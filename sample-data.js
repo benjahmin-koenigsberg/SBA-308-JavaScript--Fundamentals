@@ -5,7 +5,7 @@ const LearnerSubmissions = [
         assignment_id: 1,
         submission: {
             submitted_at: "2023-01-25",
-            score: 47
+            score: 50
         }
     },
     {
@@ -21,7 +21,7 @@ const LearnerSubmissions = [
         assignment_id: 3,
         submission: {
             submitted_at: "2023-01-25",
-            score: 400
+            score: 500
         }
     },
     {
@@ -45,14 +45,17 @@ const LearnerSubmissions = [
 // The provided course information.
 const CourseInfo = {
     id: 451,
+    //id: 'your mama',
     name: "Introduction to JavaScript"
 };
 
 // The provided assignment group.
 const AssignmentGroup = {
-    id: 12345,
+    // id: 12345,
+    id: 451,
     name: "Fundamentals of JavaScript",
     course_id: 451,
+    //course_id: "your mama",
     group_weight: 25,
     assignments: [
         {

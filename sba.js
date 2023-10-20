@@ -1,12 +1,40 @@
 import { learner1array, learner2array, seperateLearnersFromGroup } from "./parse-learners-function.js";
 import { AssignmentGroup, LearnerSubmissions, CourseInfo } from "./sample-data.js";
 import { buildAssigmentObjects } from "./build-assigment-objs-function.js";
-import { assigmentsArray  } from "./parse-assigments-function.js";
+import { assigmentsArray } from "./parse-assigments-function.js";
 import { assembleResultsArray } from "./build-result-array.js";
+import { checkForZeros, courseInfoVerify, matchAssigmentToCourse, checkInputValues } from "./verifying-functions.js";
 
 
 
 function getLearnerData(course, ag, submissions) {
+
+    // //verify that all possible points are greater than 0
+    try {
+        checkForZeros(ag)
+
+    } catch (error) {
+        console.log(error.message)
+    }
+    //verify the course has int for id
+    try {
+        courseInfoVerify(course)
+    } catch (error) {
+        console.log(error.message)
+    }
+    //verify that course and assignments match
+    try {
+        matchAssigmentToCourse(AssignmentGroup.id, CourseInfo.id)
+    } catch (error) {
+    console.log(error.message)
+    }
+    //verify that all numerical values have integers for inputs
+    try {
+        checkInputValues(course, ag, submissions)
+    } catch (error) {
+        console.log(error.message);
+    }
+
 
     let results = []
 
